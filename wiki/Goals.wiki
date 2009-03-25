@@ -3,15 +3,15 @@ Our primary goal of this project is to create a simple yet functional database e
 
 Using the .NET framework we will be able to quickly develop our program to do what we need. We will be trying to implement the following features (detailed explaination of features are further below).
 
- Features:
-  Database editing
-  Multiple editing
-  Database transfers
-  Easy editing
-  Auto-Complete
-  Easy information
+==Features==
+ * Database editing
+ * Multiple editing
+ * Database transfers
+ * Easy editing
+ * Auto-Complete
+ * Easy information
 
- Detailed:
+==Details==
 
 <b>Database editing</b> will allow users to edit items ranging from players, quests, to items with little to no effort or knowledge. This is the end result goal of the project.
 
