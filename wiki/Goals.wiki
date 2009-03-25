@@ -4,12 +4,12 @@ Our primary goal of this project is to create a simple yet functional database e
 Using the .NET framework we will be able to quickly develop our program to do what we need. We will be trying to implement the following features (detailed explaination of features are further below).
 
 * Features:
-<list>Database editing
+<ul>Database editing
 Multiple editing
 Database transfers
 Easy editing
 Auto-Complete
-Easy information</list>
+Easy information</ul>
 
 * Detailed:
 
