@@ -28,39 +28,83 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.connectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviceController1 = new System.ServiceProcess.ServiceController();
-            this.menuStrip1.SuspendLayout();
+            this.i_createFirst = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.i_profileSelection = new System.Windows.Forms.ComboBox();
+            this.i_editButton = new System.Windows.Forms.Button();
+            this.i_deleteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // i_createFirst
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.connectionToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(417, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.i_createFirst.Location = new System.Drawing.Point(171, 181);
+            this.i_createFirst.Name = "i_createFirst";
+            this.i_createFirst.Size = new System.Drawing.Size(75, 23);
+            this.i_createFirst.TabIndex = 1;
+            this.i_createFirst.Tag = "false";
+            this.i_createFirst.Text = "Create";
+            this.i_createFirst.UseVisualStyleBackColor = true;
+            this.i_createFirst.Click += new System.EventHandler(this.i_createFirst_Click);
             // 
-            // connectionToolStripMenuItem
+            // label1
             // 
-            this.connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
-            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
-            this.connectionToolStripMenuItem.Text = "Connection";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(55, 152);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(313, 26);
+            this.label1.TabIndex = 2;
+            this.label1.Tag = "false";
+            this.label1.Text = "You do not have any databases setup.\r\nTo use this tool you must create a database" +
+                " profile to connect to.";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // SpashInterface
+            // i_profileSelection
+            // 
+            this.i_profileSelection.FormattingEnabled = true;
+            this.i_profileSelection.Location = new System.Drawing.Point(30, 24);
+            this.i_profileSelection.Name = "i_profileSelection";
+            this.i_profileSelection.Size = new System.Drawing.Size(149, 21);
+            this.i_profileSelection.TabIndex = 3;
+            this.i_profileSelection.Tag = "true";
+            this.i_profileSelection.SelectionChangeCommitted += new System.EventHandler(this.i_profileSelection_SelectionChangeCommitted);
+            // 
+            // i_editButton
+            // 
+            this.i_editButton.Enabled = false;
+            this.i_editButton.Location = new System.Drawing.Point(185, 22);
+            this.i_editButton.Name = "i_editButton";
+            this.i_editButton.Size = new System.Drawing.Size(46, 23);
+            this.i_editButton.TabIndex = 4;
+            this.i_editButton.Tag = "true";
+            this.i_editButton.Text = "Edit";
+            this.i_editButton.UseVisualStyleBackColor = true;
+            // 
+            // i_deleteButton
+            // 
+            this.i_deleteButton.Enabled = false;
+            this.i_deleteButton.Location = new System.Drawing.Point(237, 22);
+            this.i_deleteButton.Name = "i_deleteButton";
+            this.i_deleteButton.Size = new System.Drawing.Size(46, 23);
+            this.i_deleteButton.TabIndex = 5;
+            this.i_deleteButton.Tag = "true";
+            this.i_deleteButton.Text = "Delete";
+            this.i_deleteButton.UseVisualStyleBackColor = true;
+            // 
+            // SplashInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(417, 291);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "SpashInterface";
+            this.Controls.Add(this.i_deleteButton);
+            this.Controls.Add(this.i_editButton);
+            this.Controls.Add(this.i_profileSelection);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.i_createFirst);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Name = "SplashInterface";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SpashInterface";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -68,8 +112,11 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem connectionToolStripMenuItem;
         private System.ServiceProcess.ServiceController serviceController1;
+        private System.Windows.Forms.Button i_createFirst;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox i_profileSelection;
+        private System.Windows.Forms.Button i_editButton;
+        private System.Windows.Forms.Button i_deleteButton;
     }
 }
