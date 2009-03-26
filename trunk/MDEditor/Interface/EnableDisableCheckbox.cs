@@ -13,6 +13,24 @@ namespace MDEditor.Interface
         private TextBox[] m_boxes;
         private bool m_enabledWhenChecked;
 
+        public EnableDisableCheckbox()
+        {
+            m_boxes = new TextBox[0];
+            m_enabledWhenChecked = true;
+        }
+
+        public bool EnabledWhenChecked
+        {
+            get { return m_enabledWhenChecked; }
+            internal set { m_enabledWhenChecked = value; }
+        }
+
+        public TextBox[] Boxes
+        {
+            get { return m_boxes; }
+            internal set { m_boxes = value; }
+        }
+
         public EnableDisableCheckbox(bool enabledWhenChecked, params TextBox[] boxes)
         {
             m_boxes = boxes;
