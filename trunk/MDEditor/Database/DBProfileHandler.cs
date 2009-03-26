@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace MDEditor.Database
 {
@@ -21,6 +24,29 @@ namespace MDEditor.Database
 
         private static Dictionary<string, DBProfile> s_profiles = new Dictionary<string, DBProfile>();
 
+
+        /// <summary>
+        /// To be use only to save and load profiles
+        /// </summary>
+        [XmlRoot]
+        public static DBProfile[] Profiles
+        {
+            internal get
+            {
+                DBProfile[] profiles = new DBProfile[s_profiles.Values.Count];
+                s_profiles.Values.CopyTo(profiles, 0);
+                return profiles;
+            }
+
+            internal set
+            {
+                foreach (DBProfile profile in value)
+                {
+                    s_profiles.Add(profile.Handle, profile);
+                }
+            }
+        }
+        
         internal static bool Add(DBProfile profile)
         {
             if (!s_profiles.ContainsKey(profile.Handle))
@@ -38,7 +64,7 @@ namespace MDEditor.Database
 
         internal static void Remove(DBProfile profile)
         {
-
+            Remove(profile.Handle);
         }
 
         internal static void Remove(string handle)
@@ -47,6 +73,29 @@ namespace MDEditor.Database
 
             if (s_profiles.Count == 0 && NoProfiles != null)
                 NoProfiles.Invoke();
+        }
+
+        internal static void Save()
+        {
+            XmlSerializer writer = new XmlSerializer(typeof(DBProfile[]));
+            TextWriter stream = new StreamWriter("profiles.db");
+
+            writer.Serialize(stream, Profiles);
+
+            stream.Close();
+        }
+
+        internal static void Load()
+        {
+            if (File.Exists("profiles.db"))
+            {
+                XmlSerializer reader = new XmlSerializer(typeof(DBProfile[]));
+                TextReader stream = new StreamReader("profiles.db");
+
+                Profiles = (DBProfile[])reader.Deserialize(stream);
+
+                stream.Close();
+            }
         }
     }
 }
