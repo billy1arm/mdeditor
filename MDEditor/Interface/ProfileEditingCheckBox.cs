@@ -59,7 +59,7 @@ namespace MDEditor.Interface
         {
             if (m_field != null)
             {
-                m_field.SetValue(Profile, Text);
+                m_field.SetValue(Profile, Checked);
             }
         }
         #endregion
