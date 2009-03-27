@@ -34,6 +34,7 @@
             this.i_profileSelection = new System.Windows.Forms.ComboBox();
             this.i_editButton = new System.Windows.Forms.Button();
             this.i_deleteButton = new System.Windows.Forms.Button();
+            this.i_connectButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // i_createFirst
@@ -97,11 +98,23 @@
             this.i_deleteButton.Visible = false;
             this.i_deleteButton.Click += new System.EventHandler(this.i_deleteButton_Click);
             // 
+            // i_connectButton
+            // 
+            this.i_connectButton.Enabled = false;
+            this.i_connectButton.Location = new System.Drawing.Point(30, 51);
+            this.i_connectButton.Name = "i_connectButton";
+            this.i_connectButton.Size = new System.Drawing.Size(75, 23);
+            this.i_connectButton.TabIndex = 6;
+            this.i_connectButton.Tag = "true";
+            this.i_connectButton.Text = "Connect";
+            this.i_connectButton.UseVisualStyleBackColor = true;
+            // 
             // SplashInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(417, 291);
+            this.Controls.Add(this.i_connectButton);
             this.Controls.Add(this.i_deleteButton);
             this.Controls.Add(this.i_editButton);
             this.Controls.Add(this.i_profileSelection);
@@ -124,5 +137,6 @@
         private System.Windows.Forms.ComboBox i_profileSelection;
         private System.Windows.Forms.Button i_editButton;
         private System.Windows.Forms.Button i_deleteButton;
+        private System.Windows.Forms.Button i_connectButton;
     }
 }

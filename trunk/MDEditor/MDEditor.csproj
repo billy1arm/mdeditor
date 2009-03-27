@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.84.0.0, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Data" />
@@ -40,6 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\RequiredLoginInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\RequiredLoginInterface.Designer.cs">
+      <DependentUpon>RequiredLoginInterface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mpq\BitStream.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="Database\DBProfile.cs" />
     <Compile Include="Database\DBProfileHandler.cs" />
@@ -72,6 +83,14 @@
     <Compile Include="Interface\SplashInterface.Designer.cs">
       <DependentUpon>SplashInterface.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mpq\Mpq.cs" />
+    <Compile Include="Mpq\MpqArchive.cs" />
+    <Compile Include="Mpq\MpqHuffman.cs" />
+    <Compile Include="Mpq\MpqParserException.cs" />
+    <Compile Include="Mpq\MpqStream.cs" />
+    <Compile Include="Mpq\MpqStructs.cs" />
+    <Compile Include="Mpq\MpqWavCompression.cs" />
+    <Compile Include="Mpq\PKLibDecompress.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Interface\DBProfileEditor.resx">
@@ -106,6 +125,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Libraries\ICSharpCode.SharpZipLib.dll" />
     <Content Include="License.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

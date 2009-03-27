@@ -59,7 +59,7 @@ namespace MDEditor.Interface
 
         private void i_profileSelection_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            i_deleteButton.Enabled = i_editButton.Enabled = i_profileSelection.SelectedItem != null;
+            i_connectButton.Enabled = i_deleteButton.Enabled = i_editButton.Enabled = i_profileSelection.SelectedItem != null;
         }
 
         private void i_editButton_Click(object sender, EventArgs e)
