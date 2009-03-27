@@ -28,17 +28,17 @@ namespace MDEditor.Database
         /// <summary>
         /// To be use only to save and load profiles
         /// </summary>
-        [XmlRoot]
-        public static DBProfile[] Profiles
+        [XmlArray("Profiles")]
+        internal static DBProfile[] Profiles
         {
-            internal get
+            get
             {
                 DBProfile[] profiles = new DBProfile[s_profiles.Values.Count];
                 s_profiles.Values.CopyTo(profiles, 0);
                 return profiles;
             }
 
-            internal set
+            set
             {
                 foreach (DBProfile profile in value)
                 {
