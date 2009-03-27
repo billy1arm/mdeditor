@@ -6,20 +6,19 @@ using System.Xml.Serialization;
 
 namespace MDEditor.Database
 {
-    [XmlElement]
-    internal class DBProfile
+    public class DBProfile
     {
         private string m_handle;
-        private string m_characterUsername;
-        private string m_characterPassword;
+        private string m_worldUsername;
+        private string m_worldPassword;
         private string m_accountUsername;
         private string m_accountPassword;
 
         public DBProfile()
         {
             m_handle = "";
-            m_characterPassword = "";
-            m_characterUsername = "";
+            m_worldPassword = "";
+            m_worldUsername = "";
             m_accountPassword = "";
             m_accountUsername = "";
         }
@@ -28,35 +27,35 @@ namespace MDEditor.Database
         public string Handle
         {
             get { return m_handle; }
-            internal set { m_handle = value; }
+             set { m_handle = value; }
         }
 
         [XmlAttribute]
-        public string CharacterUsername
+        public string WorldUsername
         {
-            get { return m_accountUsername; }
-            internal set { m_characterUsername = value; }
+            get { return m_worldUsername; }
+            set { m_worldUsername = value; }
         }
 
         [XmlAttribute]
-        public string CharacterPassword
+        public string WorldPassword
         {
-            get { return m_accountPassword; }
-            internal set { m_characterPassword = value; }
+            get { return m_worldPassword; }
+            set { m_worldPassword = value; }
         }
 
         [XmlAttribute]
         public string AccountUsername
         {
             get { return m_accountUsername; }
-            internal set { m_accountUsername = value; }
+            set { m_accountUsername = value; }
         }
 
         [XmlAttribute]
         public string AccountPassword
         {
             get { return m_accountPassword; }
-            internal set { m_accountPassword = value; }
+            set { m_accountPassword = value; }
         }
     }
 }

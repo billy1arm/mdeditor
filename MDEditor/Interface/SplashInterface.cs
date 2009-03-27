@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using MDEditor.Database;
 
 namespace MDEditor.Interface
 {
@@ -15,6 +16,16 @@ namespace MDEditor.Interface
             InitializeComponent();
 
             SwitchSplash(false);
+
+            DBProfile profile = new DBProfile();
+            profile.Handle = "ABC WoW";
+
+            DBProfile profile2 = new DBProfile();
+            profile2.Handle = "XAOS WoW";
+
+            DBProfileHandler.Add(profile);
+            DBProfileHandler.Add(profile2);
+            DBProfileHandler.Save();
         }
 
         private void i_createFirst_Click(object sender, EventArgs e)
