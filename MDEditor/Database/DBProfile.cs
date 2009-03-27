@@ -57,5 +57,10 @@ namespace MDEditor.Database
             get { return m_accountPassword; }
             set { m_accountPassword = value; }
         }
+
+        public override string ToString()
+        {
+            return m_handle;
+        }
     }
 }

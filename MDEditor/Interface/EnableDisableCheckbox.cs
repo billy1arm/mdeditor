@@ -35,7 +35,7 @@ namespace MDEditor.Interface
         {
             m_boxes = boxes;
             m_enabledWhenChecked = enabledWhenChecked;
-            InitializeComponent();
+ 
         }
 
         protected override void OnCheckedChanged(EventArgs e)
