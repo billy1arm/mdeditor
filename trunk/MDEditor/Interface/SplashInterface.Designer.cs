@@ -61,12 +61,14 @@
             // 
             // i_profileSelection
             // 
+            this.i_profileSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.i_profileSelection.FormattingEnabled = true;
             this.i_profileSelection.Location = new System.Drawing.Point(30, 24);
             this.i_profileSelection.Name = "i_profileSelection";
             this.i_profileSelection.Size = new System.Drawing.Size(149, 21);
             this.i_profileSelection.TabIndex = 3;
             this.i_profileSelection.Tag = "true";
+            this.i_profileSelection.Visible = false;
             this.i_profileSelection.SelectionChangeCommitted += new System.EventHandler(this.i_profileSelection_SelectionChangeCommitted);
             // 
             // i_editButton
@@ -79,6 +81,8 @@
             this.i_editButton.Tag = "true";
             this.i_editButton.Text = "Edit";
             this.i_editButton.UseVisualStyleBackColor = true;
+            this.i_editButton.Visible = false;
+            this.i_editButton.Click += new System.EventHandler(this.i_editButton_Click);
             // 
             // i_deleteButton
             // 
@@ -90,6 +94,8 @@
             this.i_deleteButton.Tag = "true";
             this.i_deleteButton.Text = "Delete";
             this.i_deleteButton.UseVisualStyleBackColor = true;
+            this.i_deleteButton.Visible = false;
+            this.i_deleteButton.Click += new System.EventHandler(this.i_deleteButton_Click);
             // 
             // SplashInterface
             // 

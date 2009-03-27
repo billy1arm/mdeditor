@@ -22,6 +22,16 @@ namespace MDEditor.Database
         /// </summary>
         internal static event Action ProfilesAvaliable;
 
+        /// <summary>
+        /// When a profile is added
+        /// </summary>
+        internal static event Action<DBProfile> Added;
+
+        /// <summary>
+        /// When a profile is removed
+        /// </summary>
+        internal static event Action<DBProfile> Removed;
+
         private static Dictionary<string, DBProfile> s_profiles = new Dictionary<string, DBProfile>();
 
 
@@ -42,9 +52,14 @@ namespace MDEditor.Database
             {
                 foreach (DBProfile profile in value)
                 {
-                    s_profiles.Add(profile.Handle, profile);
+                    Add(profile);
                 }
             }
+        }
+
+        internal static int Count
+        {
+            get { return s_profiles.Count; }
         }
         
         internal static bool Add(DBProfile profile)
@@ -52,6 +67,9 @@ namespace MDEditor.Database
             if (!s_profiles.ContainsKey(profile.Handle))
             {
                 s_profiles.Add(profile.Handle, profile);
+
+                if (Added != null)
+                    Added.Invoke(profile);
 
                 if (s_profiles.Count == 1 && ProfilesAvaliable != null)
                     ProfilesAvaliable.Invoke();
@@ -64,12 +82,10 @@ namespace MDEditor.Database
 
         internal static void Remove(DBProfile profile)
         {
-            Remove(profile.Handle);
-        }
+            s_profiles.Remove(profile.Handle);
 
-        internal static void Remove(string handle)
-        {
-            s_profiles.Remove(handle);
+            if (Removed != null)
+                Removed.Invoke(profile);
 
             if (s_profiles.Count == 0 && NoProfiles != null)
                 NoProfiles.Invoke();
