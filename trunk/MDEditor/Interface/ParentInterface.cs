@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using MDEditor.Database;
 
 namespace MDEditor.Interface
 {
@@ -15,63 +16,21 @@ namespace MDEditor.Interface
         public ParentInterface()
         {
             InitializeComponent();
+            Interface.DBProfileEditor.StaticInitialize();
         }
 
-        private void ShowNewForm(object sender, EventArgs e)
+        void DBProfileHandler_Added(DBProfile obj)
         {
-            Form childForm = new Form();
-            childForm.MdiParent = this;
-            childForm.Text = "Window " + childFormNumber++;
-            childForm.Show();
+            ToolStripMenuItem newItem = new ToolStripMenuItem(obj.Handle);
+            newItem.Tag = obj;
+
+            profilesToolStripMenuItem.DropDownItems.Add(newItem);
         }
 
-        private void OpenFile(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = openFileDialog.FileName;
-            }
-        }
-
-        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            saveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = saveFileDialog.FileName;
-            }
-        }
 
         private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            toolStrip.Visible = toolBarToolStripMenuItem.Checked;
-        }
-
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            statusStrip.Visible = statusBarToolStripMenuItem.Checked;
         }
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -100,6 +59,30 @@ namespace MDEditor.Interface
             {
                 childForm.Close();
             }
+        }
+
+        private void ParentInterface_Load(object sender, EventArgs e)
+        {
+            DBProfileHandler.Added += new Action<DBProfile>(DBProfileHandler_Added);
+            DBProfileHandler.Removed += new Action<DBProfile>(DBProfileHandler_Removed);
+
+            DBProfileHandler.Load();
+
+            if (DBProfileHandler.Count == 0)
+            {
+                DialogResult result = MessageBox.Show("You have no database profiles created.\nWould you like to create one now?", "No profiles detected", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    DBProfileEditor editor = new DBProfileEditor();
+                    editor.MdiParent = this;
+                    editor.Show();
+                }
+            }
+        }
+
+        void DBProfileHandler_Removed(DBProfile obj)
+        {
+            profilesToolStripMenuItem.DropDownItems.RemoveByKey(obj.Handle);
         }
     }
 }

@@ -13,6 +13,11 @@ namespace MDEditor.Database
         private string m_worldPassword;
         private string m_accountUsername;
         private string m_accountPassword;
+        private string m_worldHost;
+        private int m_worldPort;
+        private string m_accountHost;
+        private int m_accountPort;
+        private bool m_saved;
 
         public DBProfile()
         {
@@ -21,6 +26,7 @@ namespace MDEditor.Database
             m_worldUsername = "";
             m_accountPassword = "";
             m_accountUsername = "";
+            m_saved = false;
         }
 
         [XmlAttribute]
@@ -35,6 +41,20 @@ namespace MDEditor.Database
         {
             get { return m_worldUsername; }
             set { m_worldUsername = value; }
+        }
+
+        [XmlAttribute]
+        public string WorldHost
+        {
+            get { return m_worldHost; }
+            set { m_worldHost = value; }
+        }
+
+        [XmlAttribute]
+        public int WorldPort
+        {
+            get { return m_worldPort; }
+            set { m_worldPort = value; }
         }
 
         [XmlAttribute]
@@ -56,6 +76,27 @@ namespace MDEditor.Database
         {
             get { return m_accountPassword; }
             set { m_accountPassword = value; }
+        }
+
+        [XmlAttribute]
+        public int AccountPort
+        {
+            get { return m_accountPort; }
+            set { m_accountPort = value; }
+        }
+
+        [XmlAttribute]
+        public string AccountHost
+        {
+            get { return m_accountHost; }
+            set { m_accountHost = value; }
+        }
+
+        [XmlIgnore]
+        public bool Saved
+        {
+            get { return m_saved; }
+            internal set { m_saved = value; }
         }
 
         public override string ToString()

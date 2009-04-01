@@ -66,6 +66,7 @@ namespace MDEditor.Database
         {
             if (!s_profiles.ContainsKey(profile.Handle))
             {
+                profile.Saved = true;
                 s_profiles.Add(profile.Handle, profile);
 
                 if (Added != null)
@@ -82,6 +83,7 @@ namespace MDEditor.Database
 
         internal static void Remove(DBProfile profile)
         {
+            profile.Saved = false;
             s_profiles.Remove(profile.Handle);
 
             if (Removed != null)

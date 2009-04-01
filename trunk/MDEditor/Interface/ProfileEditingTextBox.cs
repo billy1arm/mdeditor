@@ -25,15 +25,15 @@ namespace MDEditor.Interface
 
         #region IProfileEditing Members
 
-        public string FieldName
+        public FieldInfo Field
         {
             get
             {
-                return m_fieldName;
+                return m_field;
             }
             set
             {
-                m_fieldName = value;
+                m_field = value;
             }
         }
 
@@ -49,12 +49,10 @@ namespace MDEditor.Interface
             }
         }
 
-        public void Set(DBProfile profile, string fieldName)
+        public void Set(DBProfile profile, FieldInfo field)
         {
             Profile = profile;
-            FieldName = fieldName;
-            if (profile != null)
-                m_field = profile.GetType().GetField(fieldName);
+            Field = field;
         }
 
         public void UpdateValue()
@@ -66,5 +64,6 @@ namespace MDEditor.Interface
         }
 
         #endregion
+
     }
 }
