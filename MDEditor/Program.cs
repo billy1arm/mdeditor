@@ -15,7 +15,7 @@ namespace MDEditor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SplashInterface());
+            Application.Run(new ParentInterface());
         }
     }
 }
