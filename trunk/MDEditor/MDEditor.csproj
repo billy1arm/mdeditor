@@ -44,12 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\RequiredLoginInterface.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interface\RequiredLoginInterface.Designer.cs">
-      <DependentUpon>RequiredLoginInterface.cs</DependentUpon>
-    </Compile>
     <Compile Include="Mpq\BitStream.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="Database\DBProfile.cs" />
