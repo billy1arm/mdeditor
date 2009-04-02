@@ -23,8 +23,19 @@ namespace MDEditor.Interface
         {
             ToolStripMenuItem newItem = new ToolStripMenuItem(obj.Handle);
             newItem.Tag = obj;
+            newItem.Click += new EventHandler(profileItem_Click);
 
             profilesToolStripMenuItem.DropDownItems.Add(newItem);
+        }
+
+        void profileItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = (ToolStripMenuItem)sender;
+
+            DBProfileEditor profileEditor = new DBProfileEditor(item.Tag);
+            profileEditor.MdiParent = this;
+
+            profileEditor.Show();
         }
 
 

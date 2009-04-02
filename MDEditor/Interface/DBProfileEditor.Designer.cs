@@ -59,6 +59,8 @@ namespace MDEditor.Interface
             this.i_worldHost = new MDEditor.Interface.ProfileEditingTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.i_handle = new MDEditor.Interface.ProfileEditingTextBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -84,41 +86,41 @@ namespace MDEditor.Interface
             this.deleteToolStripMenuItem,
             this.clearToolStripMenuItem});
             this.profileToolStripMenuItem.Name = "profileToolStripMenuItem";
-            this.profileToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.profileToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.profileToolStripMenuItem.Text = "Profile";
             // 
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.loadToolStripMenuItem.Text = "Load";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(113, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(104, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(113, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(104, 6);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.clearToolStripMenuItem.Text = "Clear";
             // 
             // groupBox2
@@ -131,7 +133,7 @@ namespace MDEditor.Interface
             this.groupBox2.Controls.Add(this.i_accountPassword);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.i_accountHost);
-            this.groupBox2.Location = new System.Drawing.Point(12, 36);
+            this.groupBox2.Location = new System.Drawing.Point(12, 60);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(210, 121);
             this.groupBox2.TabIndex = 11;
@@ -149,6 +151,7 @@ namespace MDEditor.Interface
             // 
             // i_accountPort
             // 
+            this.i_accountPort.FieldName = null;
             this.i_accountPort.Location = new System.Drawing.Point(65, 40);
             this.i_accountPort.Name = "i_accountPort";
             this.i_accountPort.Profile = null;
@@ -166,6 +169,7 @@ namespace MDEditor.Interface
             // 
             // i_accountUsername
             // 
+            this.i_accountUsername.FieldName = null;
             this.i_accountUsername.Location = new System.Drawing.Point(65, 66);
             this.i_accountUsername.Name = "i_accountUsername";
             this.i_accountUsername.Profile = null;
@@ -183,6 +187,7 @@ namespace MDEditor.Interface
             // 
             // i_accountPassword
             // 
+            this.i_accountPassword.FieldName = null;
             this.i_accountPassword.Location = new System.Drawing.Point(65, 92);
             this.i_accountPassword.Name = "i_accountPassword";
             this.i_accountPassword.Profile = null;
@@ -201,6 +206,7 @@ namespace MDEditor.Interface
             // 
             // i_accountHost
             // 
+            this.i_accountHost.FieldName = null;
             this.i_accountHost.Location = new System.Drawing.Point(65, 14);
             this.i_accountHost.Name = "i_accountHost";
             this.i_accountHost.Profile = null;
@@ -217,7 +223,7 @@ namespace MDEditor.Interface
             this.groupBox1.Controls.Add(this.i_worldPassword);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.i_worldHost);
-            this.groupBox1.Location = new System.Drawing.Point(228, 36);
+            this.groupBox1.Location = new System.Drawing.Point(228, 60);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(210, 121);
             this.groupBox1.TabIndex = 12;
@@ -235,6 +241,7 @@ namespace MDEditor.Interface
             // 
             // i_worldPort
             // 
+            this.i_worldPort.FieldName = null;
             this.i_worldPort.Location = new System.Drawing.Point(65, 40);
             this.i_worldPort.Name = "i_worldPort";
             this.i_worldPort.Profile = null;
@@ -252,6 +259,7 @@ namespace MDEditor.Interface
             // 
             // i_worldUsername
             // 
+            this.i_worldUsername.FieldName = null;
             this.i_worldUsername.Location = new System.Drawing.Point(65, 66);
             this.i_worldUsername.Name = "i_worldUsername";
             this.i_worldUsername.Profile = null;
@@ -269,6 +277,7 @@ namespace MDEditor.Interface
             // 
             // i_worldPassword
             // 
+            this.i_worldPassword.FieldName = null;
             this.i_worldPassword.Location = new System.Drawing.Point(65, 92);
             this.i_worldPassword.Name = "i_worldPassword";
             this.i_worldPassword.Profile = null;
@@ -288,6 +297,7 @@ namespace MDEditor.Interface
             // i_worldHost
             // 
             this.i_worldHost.AcceptsReturn = true;
+            this.i_worldHost.FieldName = null;
             this.i_worldHost.Location = new System.Drawing.Point(65, 14);
             this.i_worldHost.Name = "i_worldHost";
             this.i_worldHost.Profile = null;
@@ -296,7 +306,7 @@ namespace MDEditor.Interface
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(377, 163);
+            this.button1.Location = new System.Drawing.Point(377, 189);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(61, 23);
             this.button1.TabIndex = 13;
@@ -305,18 +315,38 @@ namespace MDEditor.Interface
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(293, 163);
+            this.button2.Location = new System.Drawing.Point(293, 189);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(78, 23);
             this.button2.TabIndex = 14;
             this.button2.Text = "Connect";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(18, 35);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(41, 13);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "Handle";
+            // 
+            // i_handle
+            // 
+            this.i_handle.FieldName = null;
+            this.i_handle.Location = new System.Drawing.Point(77, 32);
+            this.i_handle.Name = "i_handle";
+            this.i_handle.Profile = null;
+            this.i_handle.Size = new System.Drawing.Size(139, 20);
+            this.i_handle.TabIndex = 12;
+            // 
             // DBProfileEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 191);
+            this.ClientSize = new System.Drawing.Size(447, 233);
+            this.Controls.Add(this.i_handle);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
@@ -375,5 +405,8 @@ namespace MDEditor.Interface
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label9;
+        [ProfileEditing("Handle")]
+        private ProfileEditingTextBox i_handle;
     }
 }
