@@ -151,7 +151,6 @@ namespace MDEditor.Interface
             // 
             // i_accountPort
             // 
-            this.i_accountPort.FieldName = null;
             this.i_accountPort.Location = new System.Drawing.Point(65, 40);
             this.i_accountPort.Name = "i_accountPort";
             this.i_accountPort.Profile = null;
@@ -169,7 +168,6 @@ namespace MDEditor.Interface
             // 
             // i_accountUsername
             // 
-            this.i_accountUsername.FieldName = null;
             this.i_accountUsername.Location = new System.Drawing.Point(65, 66);
             this.i_accountUsername.Name = "i_accountUsername";
             this.i_accountUsername.Profile = null;
@@ -187,7 +185,6 @@ namespace MDEditor.Interface
             // 
             // i_accountPassword
             // 
-            this.i_accountPassword.FieldName = null;
             this.i_accountPassword.Location = new System.Drawing.Point(65, 92);
             this.i_accountPassword.Name = "i_accountPassword";
             this.i_accountPassword.Profile = null;
@@ -206,7 +203,6 @@ namespace MDEditor.Interface
             // 
             // i_accountHost
             // 
-            this.i_accountHost.FieldName = null;
             this.i_accountHost.Location = new System.Drawing.Point(65, 14);
             this.i_accountHost.Name = "i_accountHost";
             this.i_accountHost.Profile = null;
@@ -241,7 +237,6 @@ namespace MDEditor.Interface
             // 
             // i_worldPort
             // 
-            this.i_worldPort.FieldName = null;
             this.i_worldPort.Location = new System.Drawing.Point(65, 40);
             this.i_worldPort.Name = "i_worldPort";
             this.i_worldPort.Profile = null;
@@ -259,7 +254,6 @@ namespace MDEditor.Interface
             // 
             // i_worldUsername
             // 
-            this.i_worldUsername.FieldName = null;
             this.i_worldUsername.Location = new System.Drawing.Point(65, 66);
             this.i_worldUsername.Name = "i_worldUsername";
             this.i_worldUsername.Profile = null;
@@ -277,7 +271,6 @@ namespace MDEditor.Interface
             // 
             // i_worldPassword
             // 
-            this.i_worldPassword.FieldName = null;
             this.i_worldPassword.Location = new System.Drawing.Point(65, 92);
             this.i_worldPassword.Name = "i_worldPassword";
             this.i_worldPassword.Profile = null;
@@ -297,7 +290,6 @@ namespace MDEditor.Interface
             // i_worldHost
             // 
             this.i_worldHost.AcceptsReturn = true;
-            this.i_worldHost.FieldName = null;
             this.i_worldHost.Location = new System.Drawing.Point(65, 14);
             this.i_worldHost.Name = "i_worldHost";
             this.i_worldHost.Profile = null;
@@ -333,7 +325,6 @@ namespace MDEditor.Interface
             // 
             // i_handle
             // 
-            this.i_handle.FieldName = null;
             this.i_handle.Location = new System.Drawing.Point(77, 32);
             this.i_handle.Name = "i_handle";
             this.i_handle.Profile = null;
@@ -377,36 +368,36 @@ namespace MDEditor.Interface
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
-        [ProfileEditing("AccountPort")]
+        [ObjectToField("AccountPort")]
         private ProfileEditingTextBox i_accountPort;
         private System.Windows.Forms.Label label4;
-        [ProfileEditing("AccountUsername")]
+        [ObjectToField("AccountUsername")]
         private ProfileEditingTextBox i_accountUsername;
         private System.Windows.Forms.Label label5;
-        [ProfileEditing("AccountPassword")]
+        [ObjectToField("AccountPassword")]
         private ProfileEditingTextBox i_accountPassword;
         private System.Windows.Forms.Label label6;
-        [ProfileEditing("AccountHost")]
+        [ObjectToField("AccountHost")]
         private ProfileEditingTextBox i_accountHost;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
-        [ProfileEditing("WorldPort")]
+        [ObjectToField("WorldPort")]
         private ProfileEditingTextBox i_worldPort;
         private System.Windows.Forms.Label label3;
-        [ProfileEditing("WorldUsername")]
+        [ObjectToField("WorldUsername")]
         private ProfileEditingTextBox i_worldUsername;
         private System.Windows.Forms.Label label7;
-        [ProfileEditing("WorldPassword")]
+        [ObjectToField("WorldPassword")]
         private ProfileEditingTextBox i_worldPassword;
         private System.Windows.Forms.Label label8;
-        [ProfileEditing("WorldHost")]
+        [ObjectToField("WorldHost")]
         private ProfileEditingTextBox i_worldHost;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label9;
-        [ProfileEditing("Handle")]
+        [ObjectToField("Handle")]
         private ProfileEditingTextBox i_handle;
     }
 }

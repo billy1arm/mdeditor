@@ -32,7 +32,7 @@ namespace MDEditor.Interface
         {
             ToolStripMenuItem item = (ToolStripMenuItem)sender;
 
-            DBProfileEditor profileEditor = new DBProfileEditor(item.Tag);
+            DBProfileEditor profileEditor = new DBProfileEditor((DBProfile)item.Tag);
             profileEditor.MdiParent = this;
 
             profileEditor.Show();

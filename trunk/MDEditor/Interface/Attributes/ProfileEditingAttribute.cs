@@ -6,14 +6,17 @@ using System.Reflection;
 namespace MDEditor.Interface.Attributes
 {
     [AttributeUsage(AttributeTargets.Field)]
-    internal class ProfileEditingAttribute : Attribute
+    internal class ObjectToFieldAttribute : Attribute
     {
         private string m_targetField;
-        private FieldInfo m_field;
+        private PropertyInfo m_field;
+        private Type m_target;
 
-        public ProfileEditingAttribute(string targetField)
+        public ObjectToFieldAttribute(Type target, string targetField)
         {
+            m_target = target;
             m_targetField = targetField;
+            m_field = m_target.GetProperty(targetField);
         }
 
         public string TargetField
@@ -21,7 +24,7 @@ namespace MDEditor.Interface.Attributes
             get { return m_targetField; }
         }
 
-        public FieldInfo Field
+        public PropertyInfo Field
         {
             get { return m_field; }
             set { m_field = value; }
