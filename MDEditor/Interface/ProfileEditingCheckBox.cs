@@ -14,7 +14,7 @@ namespace MDEditor.Interface
     {
         private string m_fieldName;
         private DBProfile m_profile;
-        private FieldInfo m_field;
+        private PropertyInfo m_field;
 
         public ProfileEditingCheckBox()
         {
@@ -23,7 +23,7 @@ namespace MDEditor.Interface
 
         #region IProfileEditing Members
 
-        public FieldInfo Field
+        public PropertyInfo Field
         {
             get
             {
@@ -47,7 +47,7 @@ namespace MDEditor.Interface
             }
         }
 
-        public void Set(DBProfile profile, FieldInfo field)
+        public void Set(DBProfile profile, PropertyInfo field)
         {
             Profile = profile;
             Field = field;
@@ -57,7 +57,7 @@ namespace MDEditor.Interface
         {
             if (m_field != null)
             {
-                m_field.SetValue(Profile, Checked);
+                m_field.SetValue(Profile, Checked, null);
             }
         }
         #endregion

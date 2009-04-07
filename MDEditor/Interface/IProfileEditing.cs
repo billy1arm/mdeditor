@@ -9,7 +9,7 @@ namespace MDEditor.Interface
 {
     internal interface IProfileEditing
     {
-        FieldInfo Field
+        PropertyInfo Field
         {
             get;
             set;
@@ -22,6 +22,6 @@ namespace MDEditor.Interface
         }
 
         void UpdateValue();
-        void Set(DBProfile profile, FieldInfo field);
+        void Set(DBProfile profile, PropertyInfo field);
     }
 }

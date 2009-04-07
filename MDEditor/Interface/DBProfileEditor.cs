@@ -13,7 +13,7 @@ namespace MDEditor.Interface
 {
     public partial class DBProfileEditor : Form
     {
-        private static Dictionary<string, ProfileEditingAttribute> m_fields = new Dictionary<string, ProfileEditingAttribute>();
+        private static Dictionary<string, ObjectToFieldAttribute> m_fields = new Dictionary<string, ObjectToFieldAttribute>();
 
         public static void StaticInitialize()
         {
@@ -22,10 +22,10 @@ namespace MDEditor.Interface
 
             foreach (FieldInfo field in type.GetFields(BindingFlags.NonPublic | BindingFlags.Instance))
             {
-                ProfileEditingAttribute[] attributes = (ProfileEditingAttribute[])field.GetCustomAttributes(typeof(ProfileEditingAttribute), false);
+                ObjectToFieldAttribute[] attributes = (ObjectToFieldAttribute[])field.GetCustomAttributes(typeof(ObjectToFieldAttribute), false);
                 if (attributes.Length > 0)
                 {
-                    attributes[0].Field = targetType.GetField(attributes[0].TargetField);
+                    attributes[0].Field = targetType.GetProperty(attributes[0].TargetField);
 
                     if (attributes[0].Field != null)
                         m_fields.Add(field.Name, attributes[0]);
@@ -64,13 +64,7 @@ namespace MDEditor.Interface
 
         private void Initialize()
         {
-            foreach (IProfileEditing profile in Controls)
-            {
-                ProfileEditingAttribute attribute;
-                if (m_fields.TryGetValue(profile.ToString(), out attribute))
-                    profile.Set(m_profile, attribute.Field);
-
-            }
+            Scan(this.Controls);
         }
     }
 }

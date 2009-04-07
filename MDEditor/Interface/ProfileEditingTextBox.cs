@@ -14,7 +14,7 @@ namespace MDEditor.Interface
     {
         private string m_fieldName;
         private DBProfile m_profile;
-        private FieldInfo m_field;
+        private PropertyInfo m_field;
 
         public ProfileEditingTextBox()
         {
@@ -25,7 +25,7 @@ namespace MDEditor.Interface
 
         #region IProfileEditing Members
 
-        public FieldInfo Field
+        public PropertyInfo Field
         {
             get
             {
@@ -49,17 +49,18 @@ namespace MDEditor.Interface
             }
         }
 
-        public void Set(DBProfile profile, FieldInfo field)
+        public void Set(DBProfile profile, PropertyInfo field)
         {
             Profile = profile;
             Field = field;
+            Text = (String)field.GetValue(profile, null);
         }
 
         public void UpdateValue()
         {
             if (m_field != null)
             {
-                m_field.SetValue(Profile, Text);
+                m_field.SetValue(Profile, Text, null);
             }
         }
 
