@@ -41,26 +41,26 @@ namespace MDEditor.Interface
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.i_accountPort = new MDEditor.Interface.ProfileEditingTextBox();
+            this.i_accountPort = new System.Windows.Forms.TextBox ();
             this.label4 = new System.Windows.Forms.Label();
-            this.i_accountUsername = new MDEditor.Interface.ProfileEditingTextBox();
+            this.i_accountUsername = new System.Windows.Forms.TextBox ();
             this.label5 = new System.Windows.Forms.Label();
-            this.i_accountPassword = new MDEditor.Interface.ProfileEditingTextBox();
+            this.i_accountPassword = new System.Windows.Forms.TextBox ();
             this.label6 = new System.Windows.Forms.Label();
-            this.i_accountHost = new MDEditor.Interface.ProfileEditingTextBox();
+            this.i_accountHost = new System.Windows.Forms.TextBox ();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.i_worldPort = new MDEditor.Interface.ProfileEditingTextBox();
+            this.i_worldPort = new System.Windows.Forms.TextBox ();
             this.label3 = new System.Windows.Forms.Label();
-            this.i_worldUsername = new MDEditor.Interface.ProfileEditingTextBox();
+            this.i_worldUsername = new System.Windows.Forms.TextBox ();
             this.label7 = new System.Windows.Forms.Label();
-            this.i_worldPassword = new MDEditor.Interface.ProfileEditingTextBox();
+            this.i_worldPassword = new System.Windows.Forms.TextBox ();
             this.label8 = new System.Windows.Forms.Label();
-            this.i_worldHost = new MDEditor.Interface.ProfileEditingTextBox();
+            this.i_worldHost = new System.Windows.Forms.TextBox ();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.i_handle = new MDEditor.Interface.ProfileEditingTextBox();
+            this.i_handle = new System.Windows.Forms.TextBox ();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -153,7 +153,6 @@ namespace MDEditor.Interface
             // 
             this.i_accountPort.Location = new System.Drawing.Point(65, 40);
             this.i_accountPort.Name = "i_accountPort";
-            this.i_accountPort.Profile = null;
             this.i_accountPort.Size = new System.Drawing.Size(51, 20);
             this.i_accountPort.TabIndex = 10;
             // 
@@ -170,7 +169,6 @@ namespace MDEditor.Interface
             // 
             this.i_accountUsername.Location = new System.Drawing.Point(65, 66);
             this.i_accountUsername.Name = "i_accountUsername";
-            this.i_accountUsername.Profile = null;
             this.i_accountUsername.Size = new System.Drawing.Size(139, 20);
             this.i_accountUsername.TabIndex = 1;
             // 
@@ -187,7 +185,6 @@ namespace MDEditor.Interface
             // 
             this.i_accountPassword.Location = new System.Drawing.Point(65, 92);
             this.i_accountPassword.Name = "i_accountPassword";
-            this.i_accountPassword.Profile = null;
             this.i_accountPassword.Size = new System.Drawing.Size(139, 20);
             this.i_accountPassword.TabIndex = 2;
             this.i_accountPassword.UseSystemPasswordChar = true;
@@ -205,7 +202,6 @@ namespace MDEditor.Interface
             // 
             this.i_accountHost.Location = new System.Drawing.Point(65, 14);
             this.i_accountHost.Name = "i_accountHost";
-            this.i_accountHost.Profile = null;
             this.i_accountHost.Size = new System.Drawing.Size(139, 20);
             this.i_accountHost.TabIndex = 6;
             // 
@@ -239,7 +235,6 @@ namespace MDEditor.Interface
             // 
             this.i_worldPort.Location = new System.Drawing.Point(65, 40);
             this.i_worldPort.Name = "i_worldPort";
-            this.i_worldPort.Profile = null;
             this.i_worldPort.Size = new System.Drawing.Size(51, 20);
             this.i_worldPort.TabIndex = 10;
             // 
@@ -256,7 +251,6 @@ namespace MDEditor.Interface
             // 
             this.i_worldUsername.Location = new System.Drawing.Point(65, 66);
             this.i_worldUsername.Name = "i_worldUsername";
-            this.i_worldUsername.Profile = null;
             this.i_worldUsername.Size = new System.Drawing.Size(139, 20);
             this.i_worldUsername.TabIndex = 1;
             // 
@@ -273,7 +267,6 @@ namespace MDEditor.Interface
             // 
             this.i_worldPassword.Location = new System.Drawing.Point(65, 92);
             this.i_worldPassword.Name = "i_worldPassword";
-            this.i_worldPassword.Profile = null;
             this.i_worldPassword.Size = new System.Drawing.Size(139, 20);
             this.i_worldPassword.TabIndex = 2;
             this.i_worldPassword.UseSystemPasswordChar = true;
@@ -292,7 +285,6 @@ namespace MDEditor.Interface
             this.i_worldHost.AcceptsReturn = true;
             this.i_worldHost.Location = new System.Drawing.Point(65, 14);
             this.i_worldHost.Name = "i_worldHost";
-            this.i_worldHost.Profile = null;
             this.i_worldHost.Size = new System.Drawing.Size(139, 20);
             this.i_worldHost.TabIndex = 6;
             // 
@@ -327,7 +319,6 @@ namespace MDEditor.Interface
             // 
             this.i_handle.Location = new System.Drawing.Point(77, 32);
             this.i_handle.Name = "i_handle";
-            this.i_handle.Profile = null;
             this.i_handle.Size = new System.Drawing.Size(139, 20);
             this.i_handle.TabIndex = 12;
             // 
@@ -368,36 +359,36 @@ namespace MDEditor.Interface
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
-        [ObjectToField("AccountPort")]
-        private ProfileEditingTextBox i_accountPort;
+        [ObjectToObject(typeof(Database.DBProfile), "AccountPort", "Text")]
+        private System.Windows.Forms.TextBox i_accountPort;
         private System.Windows.Forms.Label label4;
-        [ObjectToField("AccountUsername")]
-        private ProfileEditingTextBox i_accountUsername;
+        [ObjectToObject(typeof(Database.DBProfile), "AccountUsername", "Text")]
+        private System.Windows.Forms.TextBox  i_accountUsername;
         private System.Windows.Forms.Label label5;
-        [ObjectToField("AccountPassword")]
-        private ProfileEditingTextBox i_accountPassword;
+        [ObjectToObject(typeof(Database.DBProfile), "AccountPassword", "Text")]
+        private System.Windows.Forms.TextBox  i_accountPassword;
         private System.Windows.Forms.Label label6;
-        [ObjectToField("AccountHost")]
-        private ProfileEditingTextBox i_accountHost;
+        [ObjectToObject(typeof(Database.DBProfile), "AccountHost", "Text")]
+        private System.Windows.Forms.TextBox  i_accountHost;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
-        [ObjectToField("WorldPort")]
-        private ProfileEditingTextBox i_worldPort;
+        [ObjectToObject(typeof(Database.DBProfile), "WorldPort", "Text")]
+        private System.Windows.Forms.TextBox  i_worldPort;
         private System.Windows.Forms.Label label3;
-        [ObjectToField("WorldUsername")]
-        private ProfileEditingTextBox i_worldUsername;
+        [ObjectToObject(typeof(Database.DBProfile), "WorldUsername", "Text")]
+        private System.Windows.Forms.TextBox  i_worldUsername;
         private System.Windows.Forms.Label label7;
-        [ObjectToField("WorldPassword")]
-        private ProfileEditingTextBox i_worldPassword;
+        [ObjectToObject(typeof(Database.DBProfile), "WorldPassword", "Text")]
+        private System.Windows.Forms.TextBox  i_worldPassword;
         private System.Windows.Forms.Label label8;
-        [ObjectToField("WorldHost")]
-        private ProfileEditingTextBox i_worldHost;
+        [ObjectToObject(typeof(Database.DBProfile), "WorldHost", "Text")]
+        private System.Windows.Forms.TextBox  i_worldHost;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label9;
-        [ObjectToField("Handle")]
-        private ProfileEditingTextBox i_handle;
+        [ObjectToObject(typeof(Database.DBProfile), "Handle", "Text")]
+        private System.Windows.Forms.TextBox  i_handle;
     }
 }
