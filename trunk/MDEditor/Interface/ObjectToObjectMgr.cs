@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Forms;
 using MDEditor.Interface.Attributes;
 
 namespace MDEditor.Interface
@@ -10,6 +11,11 @@ namespace MDEditor.Interface
         public static void Add(ObjectToObjectClassAttribute oClass)
         {
 
+        }
+
+        public static void Initialize()
+        {
+            MessageBox.Show("Loaded ObjectToObject!!");
         }
     }
 }
