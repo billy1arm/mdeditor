@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Interface\Attributes\ObjectToObjectClassAttribute.cs" />
     <Compile Include="Interface\ObjectToObjectMgr.cs" />
+    <Compile Include="Manager.cs" />
     <Compile Include="Mpq\BitStream.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="Database\DBProfile.cs" />

@@ -13,9 +13,7 @@ namespace MDEditor
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ParentInterface());
+            Manager.Start();
         }
     }
 }
