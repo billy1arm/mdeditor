@@ -28,13 +28,13 @@ namespace MDEditor
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             m_parentInterface = new ParentInterface();
-            Assembly ourAssembly = Assembly.Load("MDEditor");
+            Assembly ourAssembly = Assembly.GetExecutingAssembly();
 
             //This is where we will search for and queue all loading attributes
             foreach (Type type in ourAssembly.GetTypes())
             {
                 //First of all, search the class for a load method if possible
-                Load[] load = (Load[])type.GetCustomAttributes(typeof(Load), true);
+                Load[] load = (Load[])type.GetCustomAttributes(typeof(Load), false);
 
                 if (load.Length > 0)
                 {
@@ -46,9 +46,9 @@ namespace MDEditor
                 }
 
                 //Now search for any initialize static methods
-                foreach (MethodInfo method in type.GetMethods(BindingFlags.Static | BindingFlags.Public))
+                foreach (MethodInfo method in type.GetMethods(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic))
                 {
-                    load = (Load[])type.GetCustomAttributes(typeof(Load), true);
+                    load = (Load[])type.GetCustomAttributes(typeof(Load), false);
 
                     foreach (Load loadItem in load)
                     {
