@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 using MDEditor.Interface;
+using MDEditor.Interface.Attributes;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -14,6 +15,7 @@ namespace MDEditor
     public class Manager
     {
         private static ParentInterface m_parentInterface;
+        private static LogInterface m_logInterface;
 
         public static void Start()
         {
@@ -28,6 +30,8 @@ namespace MDEditor
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             m_parentInterface = new ParentInterface();
+            m_logInterface = new LogInterface();
+            m_logInterface.MdiParent = m_parentInterface;
             Assembly ourAssembly = Assembly.GetExecutingAssembly();
 
             //This is where we will search for and queue all loading attributes
@@ -46,14 +50,15 @@ namespace MDEditor
                 }
 
                 //Now search for any initialize static methods
-                foreach (MethodInfo method in type.GetMethods(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic))
+                foreach (MethodInfo method in type.GetMethods(BindingFlags.Public | BindingFlags.Static))
                 {
-                    load = (Load[])type.GetCustomAttributes(typeof(Load), false);
+                    load = (Load[])method.GetCustomAttributes(typeof(Load), false);
+                    
 
                     foreach (Load loadItem in load)
                     {
                         if (loadItem.VisibleName == "")
-                            loadItem.VisibleName = type.Name;
+                            loadItem.VisibleName = method.Name;
 
                         loadItem.Type = type;
                         loadItem.Initialize = method;
@@ -71,9 +76,10 @@ namespace MDEditor
                     {
                         try
                         {
-                            Activator.CreateInstance(load.Type);
+                            Log("Loading dynamic content: {0}\n", load.VisibleName);
+                            Activator.CreateInstance(load.Type, load.Parameters);
                         }
-                        catch
+                        catch (Exception exception)
                         {
                             MessageBox.Show("An error has occured, the program must now close.", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             Application.Exit();
@@ -81,24 +87,46 @@ namespace MDEditor
                     }
                     else
                     {
-                        try
-                        {
-                            load.Initialize.Invoke(null, null);
-                        }
-                        catch
-                        {
-                            MessageBox.Show("An error has occured, the program must now close.", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            Application.Exit();
-                        }
+                        Log("Executing static method: {0}\n", load.VisibleName);
+                        load.Initialize.Invoke(null, null);
                     }
                 }
             }
         }
 
-        [Load("Form Shown", Priority.Fifth)]
+        internal static LogInterface LogInterface
+        {
+            get { return m_logInterface; }
+        }
+
+        [Load("Interface Setup", Priority.Fifth)]
         public static void ShowForm()
         {
+            m_logInterface.WindowState = FormWindowState.Maximized;
+            m_logInterface.Show();
             Application.Run(m_parentInterface);
         }
+
+        #region Log Redirect
+        public static void Log(string text, bool addTimeStamp, params object[] param)
+        {
+            Log(String.Format(text, param), addTimeStamp);
+        }
+
+        public static void Log(string text, params object[] param)
+        {
+            Log(String.Format(text, param), true);
+        }
+
+        public static void Log(string text)
+        {
+            Log(text, true);
+        }
+
+        public static void Log(string text, bool addTimeStamp)
+        {
+            m_logInterface.Log(text, addTimeStamp);
+        }
+        #endregion
     }
 }

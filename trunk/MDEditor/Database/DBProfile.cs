@@ -14,9 +14,9 @@ namespace MDEditor.Database
         private string m_accountUsername;
         private string m_accountPassword;
         private string m_worldHost;
-        private int m_worldPort;
+        private decimal m_worldPort;
         private string m_accountHost;
-        private int m_accountPort;
+        private decimal m_accountPort;
         private bool m_saved;
 
         public DBProfile()
@@ -26,6 +26,8 @@ namespace MDEditor.Database
             m_worldUsername = "";
             m_accountPassword = "";
             m_accountUsername = "";
+            m_accountPort = 3306;
+            m_worldPort = 3306;
             m_saved = false;
         }
 
@@ -51,7 +53,7 @@ namespace MDEditor.Database
         }
 
         [XmlAttribute]
-        public int WorldPort
+        public decimal WorldPort
         {
             get { return m_worldPort; }
             set { m_worldPort = value; }
@@ -79,7 +81,7 @@ namespace MDEditor.Database
         }
 
         [XmlAttribute]
-        public int AccountPort
+        public decimal AccountPort
         {
             get { return m_accountPort; }
             set { m_accountPort = value; }

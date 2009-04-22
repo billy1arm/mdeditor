@@ -44,14 +44,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\Attributes\ObjectToObjectClassAttribute.cs" />
+    <Compile Include="Interface\Attributes\ObjectToObjectClass.cs" />
+    <Compile Include="Interface\Attributes\ObjectToObjectTarget.cs" />
+    <Compile Include="Interface\LogInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\LogInterface.Designer.cs">
+      <DependentUpon>LogInterface.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\ObjectToObjectMgr.cs" />
     <Compile Include="Manager.cs" />
     <Compile Include="Mpq\BitStream.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="Database\DBProfile.cs" />
     <Compile Include="Database\DBProfileHandler.cs" />
-    <Compile Include="Interface\Attributes\ObjectToObjectAttribute.cs" />
+    <Compile Include="Interface\Attributes\ObjectToObject.cs" />
     <Compile Include="Interface\DBProfileEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +87,9 @@
     <EmbeddedResource Include="Interface\DBProfileEditor.resx">
       <DependentUpon>DBProfileEditor.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\LogInterface.resx">
+      <DependentUpon>LogInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\ParentInterface.resx">
       <DependentUpon>ParentInterface.cs</DependentUpon>
