@@ -22,11 +22,12 @@ namespace MDEditor
     /// Used to automaticly load a class or static class
     /// Note: This will only create instances or run objects at a specific run time
     /// </summary>
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
     public class Load : Attribute
     {
-        public string VisibleName;
+        public string VisibleName = "";
         public Priority Priority;
+        public object[] Parameters;
 
         /// <summary>
         /// Used for class loading
@@ -43,15 +44,40 @@ namespace MDEditor
             Priority = Priority.Last;
         }
 
+        public Load(string visibleName, params object[] parameters)
+        {
+            VisibleName = visibleName;
+            Priority = Priority.Last;
+        }
+
+        public Load(params object[] parameters)
+        {
+            Priority = Priority.Last;
+            Parameters = parameters;
+        }
+
         public Load(Priority priority)
         {
             Priority = priority;
+        }
+
+        public Load(Priority priority, params object[] parameters)
+        {
+            Priority = Priority.Last;
+            Parameters = parameters;
         }
 
         public Load(string visibleName, Priority priority)
         {
             VisibleName = visibleName;
             Priority = priority;
+        }
+
+        public Load(string visibleName, Priority priority, params object[] parameters)
+        {
+            VisibleName = visibleName;
+            Priority = priority;
+            Parameters = parameters;
         }
 
         public bool IsClass

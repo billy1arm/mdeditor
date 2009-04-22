@@ -16,7 +16,6 @@ namespace MDEditor.Interface
         public ParentInterface()
         {
             InitializeComponent();
-            Interface.DBProfileEditor.StaticInitialize();
         }
 
         void DBProfileHandler_Added(DBProfile obj)
@@ -94,6 +93,14 @@ namespace MDEditor.Interface
         void DBProfileHandler_Removed(DBProfile obj)
         {
             profilesToolStripMenuItem.DropDownItems.RemoveByKey(obj.Handle);
+        }
+
+        private void logToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Manager.LogInterface.Visible)
+            {
+                Manager.LogInterface.Show();
+            }
         }
     }
 }

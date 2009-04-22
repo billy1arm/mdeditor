@@ -11,29 +11,12 @@ using MDEditor.Interface.Attributes;
 
 namespace MDEditor.Interface
 {
+    [ObjectToObjectClass]
     public partial class DBProfileEditor : Form
     {
-        private static Dictionary<string, ObjectToObjectAttribute> m_fields = new Dictionary<string, ObjectToObjectAttribute>();
-
-        public static void StaticInitialize()
-        {
-            Type type = typeof(DBProfileEditor);
-            Type targetType = typeof(DBProfile);
-
-            foreach (FieldInfo field in type.GetFields(BindingFlags.NonPublic | BindingFlags.Instance))
-            {
-                ObjectToObjectAttribute[] attributes = (ObjectToObjectAttribute[])field.GetCustomAttributes(typeof(ObjectToObjectAttribute), false);
-                if (attributes.Length > 0)
-                {
-                    attributes[0].Field = targetType.GetProperty(attributes[0].TargetField);
-
-                    if (attributes[0].Field != null)
-                        m_fields.Add(field.Name, attributes[0]);
-                }
-            }
-        }
-
+        [ObjectToObjectTarget]
         private DBProfile m_profile;
+        private ObjectToObjectClass m_otoClass;
 
         public DBProfileEditor()
         {
@@ -51,15 +34,25 @@ namespace MDEditor.Interface
 
         private void Save()
         {
-            if (!m_profile.Saved)
+            if (m_otoClass != null)
             {
-                DBProfileHandler.Add(m_profile);
+                m_otoClass.SaveValues();
+
+                if (!m_profile.Saved)
+                {
+                    DBProfileHandler.Add(m_profile);
+                }
             }
         }
 
         private void Initialize()
         {
-            
+            m_otoClass = ObjectToObjectMgr.Scan(this);
+
+            if (m_otoClass != null)
+            {
+                m_otoClass.GetValues();
+            }
         }
     }
 }

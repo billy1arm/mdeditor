@@ -41,29 +41,31 @@ namespace MDEditor.Interface
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.i_accountPort = new System.Windows.Forms.TextBox ();
+            this.i_accountPort = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.i_accountUsername = new System.Windows.Forms.TextBox ();
+            this.i_accountUsername = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.i_accountPassword = new System.Windows.Forms.TextBox ();
+            this.i_accountPassword = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.i_accountHost = new System.Windows.Forms.TextBox ();
+            this.i_accountHost = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.i_worldPort = new System.Windows.Forms.TextBox ();
+            this.i_worldPort = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.i_worldUsername = new System.Windows.Forms.TextBox ();
+            this.i_worldUsername = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.i_worldPassword = new System.Windows.Forms.TextBox ();
+            this.i_worldPassword = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.i_worldHost = new System.Windows.Forms.TextBox ();
+            this.i_worldHost = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.i_handle = new System.Windows.Forms.TextBox ();
+            this.i_handle = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.i_accountPort)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.i_worldPort)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -86,41 +88,41 @@ namespace MDEditor.Interface
             this.deleteToolStripMenuItem,
             this.clearToolStripMenuItem});
             this.profileToolStripMenuItem.Name = "profileToolStripMenuItem";
-            this.profileToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.profileToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.profileToolStripMenuItem.Text = "Profile";
             // 
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.loadToolStripMenuItem.Text = "Load";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(104, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(113, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(104, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(113, 6);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.clearToolStripMenuItem.Text = "Clear";
             // 
             // groupBox2
@@ -152,9 +154,19 @@ namespace MDEditor.Interface
             // i_accountPort
             // 
             this.i_accountPort.Location = new System.Drawing.Point(65, 40);
+            this.i_accountPort.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
             this.i_accountPort.Name = "i_accountPort";
             this.i_accountPort.Size = new System.Drawing.Size(51, 20);
             this.i_accountPort.TabIndex = 10;
+            this.i_accountPort.Value = new decimal(new int[] {
+            3306,
+            0,
+            0,
+            0});
             // 
             // label4
             // 
@@ -234,9 +246,19 @@ namespace MDEditor.Interface
             // i_worldPort
             // 
             this.i_worldPort.Location = new System.Drawing.Point(65, 40);
+            this.i_worldPort.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
             this.i_worldPort.Name = "i_worldPort";
             this.i_worldPort.Size = new System.Drawing.Size(51, 20);
             this.i_worldPort.TabIndex = 10;
+            this.i_worldPort.Value = new decimal(new int[] {
+            3306,
+            0,
+            0,
+            0});
             // 
             // label3
             // 
@@ -341,8 +363,10 @@ namespace MDEditor.Interface
             this.menuStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.i_accountPort)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.i_worldPort)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,8 +383,8 @@ namespace MDEditor.Interface
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
-        [ObjectToObject(typeof(Database.DBProfile), "AccountPort", "Text")]
-        private System.Windows.Forms.TextBox i_accountPort;
+        [ObjectToObject(typeof(Database.DBProfile), "AccountPort", "Value")]
+        private System.Windows.Forms.NumericUpDown i_accountPort;
         private System.Windows.Forms.Label label4;
         [ObjectToObject(typeof(Database.DBProfile), "AccountUsername", "Text")]
         private System.Windows.Forms.TextBox  i_accountUsername;
@@ -372,8 +396,8 @@ namespace MDEditor.Interface
         private System.Windows.Forms.TextBox  i_accountHost;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
-        [ObjectToObject(typeof(Database.DBProfile), "WorldPort", "Text")]
-        private System.Windows.Forms.TextBox  i_worldPort;
+        [ObjectToObject(typeof(Database.DBProfile), "WorldPort", "Value")]
+        private System.Windows.Forms.NumericUpDown  i_worldPort;
         private System.Windows.Forms.Label label3;
         [ObjectToObject(typeof(Database.DBProfile), "WorldUsername", "Text")]
         private System.Windows.Forms.TextBox  i_worldUsername;
@@ -389,6 +413,6 @@ namespace MDEditor.Interface
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label9;
         [ObjectToObject(typeof(Database.DBProfile), "Handle", "Text")]
-        private System.Windows.Forms.TextBox  i_handle;
+        private System.Windows.Forms.TextBox i_handle;
     }
 }
