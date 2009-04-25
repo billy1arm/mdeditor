@@ -107,6 +107,94 @@ namespace MDEditor
             Application.Run(m_parentInterface);
         }
 
+        #region Field Requirements
+        internal static RequirementClass RequirementScan(object obj)
+        {
+            Type RType = obj.GetType();
+
+            RequirementClass[] rClasses = (RequirementClass[])RType.GetCustomAttributes(typeof(RequirementClass), false);
+
+            if (rClasses.Length > 0)
+            {
+                RequirementClass rClass = rClasses[0];
+
+                foreach (FieldInfo field in RType.GetFields(BindingFlags.Instance))
+                {
+                    RequiredField[] requirements = (RequiredField[])field.GetCustomAttributes(typeof(RequiredField), false);
+
+                    foreach (RequiredField r in requirements)
+                    {
+                        r.Target = field.GetValue(obj);
+                        rClass.Add(r);
+                    }
+                }
+
+                return rClass;
+            }
+
+            return null;
+        }
+        #endregion
+
+        #region Object To Object
+
+        /// <summary>
+        /// Scans an object for Object to Object classes
+        /// </summary>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        internal static ObjectToObjectClass OTOScan(object target)
+        {
+            Type targetType = target.GetType();
+            ObjectToObjectClass[] otoClasses = (ObjectToObjectClass[])targetType.GetCustomAttributes(typeof(ObjectToObjectClass), false);
+            Manager.Log("OTO Scanning requested ({0}): ", targetType.Name);
+            ObjectToObjectClass otoClass = null;
+
+            if (otoClasses.Length > 0)
+            {
+                Manager.Log("Started!\n", false);
+                otoClass = otoClasses[0];
+
+                foreach (FieldInfo field in targetType.GetFields(BindingFlags.NonPublic | BindingFlags.Instance))
+                {
+                    ObjectToObjectTarget[] otoTargets = (ObjectToObjectTarget[])field.GetCustomAttributes(typeof(ObjectToObjectTarget), false);
+
+                    if (otoTargets.Length > 0)
+                    {
+                        Manager.Log("Found target: {0}\n", field.Name);
+                        otoClass.ObjectTarget = field.GetValue(target);
+                    }
+                }
+
+                foreach (FieldInfo field in targetType.GetFields(BindingFlags.NonPublic | BindingFlags.Instance))
+                {
+                    ObjectToObject[] otos = (ObjectToObject[])field.GetCustomAttributes(typeof(ObjectToObject), false);
+
+                    foreach (ObjectToObject oto in otos)
+                    {
+                        Manager.Log("Found field {0}\n", field.Name);
+                        oto.Owner = (Control)field.GetValue(target);
+                        otoClass.Add(oto);
+                    }
+                }
+
+                if (otoClass.ObjectTarget != null)
+                {
+                    Manager.Log("OTO Successfull scan\n");
+                    return otoClass;
+                }
+                else
+                {
+                    Manager.Log("OTO Unsuccessful scan\n");
+                }
+            }
+            else
+                Manager.Log("Failed, not OTO class.\n", false);
+
+            return null;
+        } 
+        #endregion
+
         #region Log Redirect
         public static void Log(string text, bool addTimeStamp, params object[] param)
         {
