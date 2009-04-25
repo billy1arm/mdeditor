@@ -103,7 +103,7 @@ namespace MDEditor.Database
             stream.Close();
         }
 
-        internal static void Load()
+        public static void Load()
         {
             if (File.Exists("profiles.db"))
             {

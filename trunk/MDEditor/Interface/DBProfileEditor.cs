@@ -11,12 +11,14 @@ using MDEditor.Interface.Attributes;
 
 namespace MDEditor.Interface
 {
+    [RequirementClass]
     [ObjectToObjectClass]
     public partial class DBProfileEditor : Form
     {
         [ObjectToObjectTarget]
         private DBProfile m_profile;
         private ObjectToObjectClass m_otoClass;
+        private RequirementClass m_rClass;
 
         public DBProfileEditor()
         {
@@ -42,17 +44,27 @@ namespace MDEditor.Interface
                 {
                     DBProfileHandler.Add(m_profile);
                 }
+
+                DBProfileHandler.Save();
             }
         }
 
         private void Initialize()
         {
-            m_otoClass = ObjectToObjectMgr.Scan(this);
+            m_otoClass = Manager.OTOScan(this);
+            m_rClass = Manager.RequirementScan(this);
 
             if (m_otoClass != null)
             {
                 m_otoClass.GetValues();
             }
+        }
+
+        private void i_saveButton_Click(object sender, EventArgs e)
+        {
+            //Need checking here but for now we will just save
+
+            Save();
         }
     }
 }

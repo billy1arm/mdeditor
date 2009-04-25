@@ -57,7 +57,7 @@ namespace MDEditor.Interface
             this.i_worldPassword = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.i_worldHost = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.i_saveButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.i_handle = new System.Windows.Forms.TextBox();
@@ -138,7 +138,7 @@ namespace MDEditor.Interface
             this.groupBox2.Location = new System.Drawing.Point(12, 60);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(210, 121);
-            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Account Database";
             // 
@@ -161,7 +161,7 @@ namespace MDEditor.Interface
             0});
             this.i_accountPort.Name = "i_accountPort";
             this.i_accountPort.Size = new System.Drawing.Size(51, 20);
-            this.i_accountPort.TabIndex = 10;
+            this.i_accountPort.TabIndex = 2;
             this.i_accountPort.Value = new decimal(new int[] {
             3306,
             0,
@@ -182,7 +182,7 @@ namespace MDEditor.Interface
             this.i_accountUsername.Location = new System.Drawing.Point(65, 66);
             this.i_accountUsername.Name = "i_accountUsername";
             this.i_accountUsername.Size = new System.Drawing.Size(139, 20);
-            this.i_accountUsername.TabIndex = 1;
+            this.i_accountUsername.TabIndex = 3;
             // 
             // label5
             // 
@@ -198,7 +198,7 @@ namespace MDEditor.Interface
             this.i_accountPassword.Location = new System.Drawing.Point(65, 92);
             this.i_accountPassword.Name = "i_accountPassword";
             this.i_accountPassword.Size = new System.Drawing.Size(139, 20);
-            this.i_accountPassword.TabIndex = 2;
+            this.i_accountPassword.TabIndex = 4;
             this.i_accountPassword.UseSystemPasswordChar = true;
             // 
             // label6
@@ -215,7 +215,7 @@ namespace MDEditor.Interface
             this.i_accountHost.Location = new System.Drawing.Point(65, 14);
             this.i_accountHost.Name = "i_accountHost";
             this.i_accountHost.Size = new System.Drawing.Size(139, 20);
-            this.i_accountHost.TabIndex = 6;
+            this.i_accountHost.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -230,7 +230,7 @@ namespace MDEditor.Interface
             this.groupBox1.Location = new System.Drawing.Point(228, 60);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(210, 121);
-            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "World Database";
             // 
@@ -253,7 +253,7 @@ namespace MDEditor.Interface
             0});
             this.i_worldPort.Name = "i_worldPort";
             this.i_worldPort.Size = new System.Drawing.Size(51, 20);
-            this.i_worldPort.TabIndex = 10;
+            this.i_worldPort.TabIndex = 6;
             this.i_worldPort.Value = new decimal(new int[] {
             3306,
             0,
@@ -274,7 +274,7 @@ namespace MDEditor.Interface
             this.i_worldUsername.Location = new System.Drawing.Point(65, 66);
             this.i_worldUsername.Name = "i_worldUsername";
             this.i_worldUsername.Size = new System.Drawing.Size(139, 20);
-            this.i_worldUsername.TabIndex = 1;
+            this.i_worldUsername.TabIndex = 7;
             // 
             // label7
             // 
@@ -290,7 +290,7 @@ namespace MDEditor.Interface
             this.i_worldPassword.Location = new System.Drawing.Point(65, 92);
             this.i_worldPassword.Name = "i_worldPassword";
             this.i_worldPassword.Size = new System.Drawing.Size(139, 20);
-            this.i_worldPassword.TabIndex = 2;
+            this.i_worldPassword.TabIndex = 8;
             this.i_worldPassword.UseSystemPasswordChar = true;
             // 
             // label8
@@ -308,23 +308,24 @@ namespace MDEditor.Interface
             this.i_worldHost.Location = new System.Drawing.Point(65, 14);
             this.i_worldHost.Name = "i_worldHost";
             this.i_worldHost.Size = new System.Drawing.Size(139, 20);
-            this.i_worldHost.TabIndex = 6;
+            this.i_worldHost.TabIndex = 5;
             // 
-            // button1
+            // i_saveButton
             // 
-            this.button1.Location = new System.Drawing.Point(377, 189);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(61, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
+            this.i_saveButton.Location = new System.Drawing.Point(377, 189);
+            this.i_saveButton.Name = "i_saveButton";
+            this.i_saveButton.Size = new System.Drawing.Size(61, 23);
+            this.i_saveButton.TabIndex = 10;
+            this.i_saveButton.Text = "Save";
+            this.i_saveButton.UseVisualStyleBackColor = true;
+            this.i_saveButton.Click += new System.EventHandler(this.i_saveButton_Click);
             // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(293, 189);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(78, 23);
-            this.button2.TabIndex = 14;
+            this.button2.TabIndex = 9;
             this.button2.Text = "Connect";
             this.button2.UseVisualStyleBackColor = true;
             // 
@@ -342,7 +343,7 @@ namespace MDEditor.Interface
             this.i_handle.Location = new System.Drawing.Point(77, 32);
             this.i_handle.Name = "i_handle";
             this.i_handle.Size = new System.Drawing.Size(139, 20);
-            this.i_handle.TabIndex = 12;
+            this.i_handle.TabIndex = 0;
             // 
             // DBProfileEditor
             // 
@@ -352,7 +353,7 @@ namespace MDEditor.Interface
             this.Controls.Add(this.i_handle);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.i_saveButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.menuStrip1);
@@ -407,11 +408,12 @@ namespace MDEditor.Interface
         private System.Windows.Forms.Label label8;
         [ObjectToObject(typeof(Database.DBProfile), "WorldHost", "Text")]
         private System.Windows.Forms.TextBox  i_worldHost;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button i_saveButton;
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label9;
+        [RequiredField("Text", "Please enter the name you wish to designate this profile")]
         [ObjectToObject(typeof(Database.DBProfile), "Handle", "Text")]
         private System.Windows.Forms.TextBox i_handle;
     }

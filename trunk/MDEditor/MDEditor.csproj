@@ -46,13 +46,14 @@
   <ItemGroup>
     <Compile Include="Interface\Attributes\ObjectToObjectClass.cs" />
     <Compile Include="Interface\Attributes\ObjectToObjectTarget.cs" />
+    <Compile Include="Interface\Attributes\RequiredField.cs" />
+    <Compile Include="Interface\Attributes\RequirementClass.cs" />
     <Compile Include="Interface\LogInterface.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Interface\LogInterface.Designer.cs">
       <DependentUpon>LogInterface.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interface\ObjectToObjectMgr.cs" />
     <Compile Include="Manager.cs" />
     <Compile Include="Mpq\BitStream.cs" />
     <Compile Include="Common.cs" />
