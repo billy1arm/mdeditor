@@ -36,16 +36,28 @@ namespace MDEditor.Interface
 
         private void Save()
         {
-            if (m_otoClass != null)
+            if (m_otoClass != null && m_rClass != null)
             {
-                m_otoClass.SaveValues();
-
-                if (!m_profile.Saved)
+                if (m_rClass.MeetsRequirement)
                 {
-                    DBProfileHandler.Add(m_profile);
-                }
+                    m_otoClass.SaveValues();
 
-                DBProfileHandler.Save();
+                    if (!m_profile.Saved)
+                    {
+                        DBProfileHandler.Add(m_profile);
+                    }
+
+                    DBProfileHandler.Save();
+                }
+                else
+                {
+                    MessageBox.Show("You have not filled out all the required fields", "Incomplete form", MessageBoxButtons.OK);
+                }
+            }
+            else
+            {
+                MessageBox.Show("There was an error saving this profile", "Save error", MessageBoxButtons.OK);
+                Close();
             }
         }
 

@@ -387,12 +387,15 @@ namespace MDEditor.Interface
         [ObjectToObject(typeof(Database.DBProfile), "AccountPort", "Value")]
         private System.Windows.Forms.NumericUpDown i_accountPort;
         private System.Windows.Forms.Label label4;
+        [RequiredField("Text", "", 2)]
         [ObjectToObject(typeof(Database.DBProfile), "AccountUsername", "Text")]
         private System.Windows.Forms.TextBox  i_accountUsername;
         private System.Windows.Forms.Label label5;
+        [RequiredField("Text", "", 2)]
         [ObjectToObject(typeof(Database.DBProfile), "AccountPassword", "Text")]
         private System.Windows.Forms.TextBox  i_accountPassword;
         private System.Windows.Forms.Label label6;
+        [RequiredField("Text", "", 2)]
         [ObjectToObject(typeof(Database.DBProfile), "AccountHost", "Text")]
         private System.Windows.Forms.TextBox  i_accountHost;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -400,12 +403,15 @@ namespace MDEditor.Interface
         [ObjectToObject(typeof(Database.DBProfile), "WorldPort", "Value")]
         private System.Windows.Forms.NumericUpDown  i_worldPort;
         private System.Windows.Forms.Label label3;
+        [RequiredField("Text", "", 1)]
         [ObjectToObject(typeof(Database.DBProfile), "WorldUsername", "Text")]
         private System.Windows.Forms.TextBox  i_worldUsername;
         private System.Windows.Forms.Label label7;
+        [RequiredField("Text", "", 1)]
         [ObjectToObject(typeof(Database.DBProfile), "WorldPassword", "Text")]
         private System.Windows.Forms.TextBox  i_worldPassword;
         private System.Windows.Forms.Label label8;
+        [RequiredField("Text", "", 1)]
         [ObjectToObject(typeof(Database.DBProfile), "WorldHost", "Text")]
         private System.Windows.Forms.TextBox  i_worldHost;
         private System.Windows.Forms.Button i_saveButton;

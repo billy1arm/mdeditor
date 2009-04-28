@@ -8,15 +8,25 @@ namespace MDEditor.Interface.Attributes
     internal class RequirementClass : Attribute
     {
         private List<RequiredField> m_requirements;
+        private Dictionary<int, List<RequiredField>> m_requiredGroups;
 
         public RequirementClass()
         {
             m_requirements = new List<RequiredField>();
+            m_requiredGroups = new Dictionary<int, List<RequiredField>>();
         }
 
         public void Add(RequiredField requirement)
         {
-            m_requirements.Add(requirement);
+            if (requirement.RequirementGroup >= 0)
+            {
+                if (!m_requiredGroups.ContainsKey(requirement.RequirementGroup))
+                    m_requiredGroups.Add(requirement.RequirementGroup, new List<RequiredField>());
+
+                m_requiredGroups[requirement.RequirementGroup].Add(requirement);
+            }
+            else
+                m_requirements.Add(requirement);
         }
 
         public bool MeetsRequirement
@@ -27,6 +37,26 @@ namespace MDEditor.Interface.Attributes
                 {
                     if (!requirement.MeetsRequirement)
                         return false;
+                }
+
+                int[] groups = new int[m_requiredGroups.Keys.Count];
+
+                m_requiredGroups.Keys.CopyTo(groups, 0);
+
+                foreach (int i in groups)
+                {
+                    bool foundEmpty = false;
+                    bool foundValue = false;
+                    foreach (RequiredField field in m_requiredGroups[i])
+                    {
+                        if (!field.MeetsRequirement)
+                            foundEmpty = true;
+                        else
+                            foundValue = true;
+
+                        if (foundEmpty && foundValue)
+                            return false;
+                    }
                 }
 
                 return true;

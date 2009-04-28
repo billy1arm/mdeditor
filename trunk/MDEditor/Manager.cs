@@ -5,7 +5,6 @@ using System.Windows.Forms;
 using MDEditor.Interface;
 using MDEditor.Interface.Attributes;
 using System.Reflection;
-using System.Windows.Forms;
 
 namespace MDEditor
 {
@@ -118,7 +117,7 @@ namespace MDEditor
             {
                 RequirementClass rClass = rClasses[0];
 
-                foreach (FieldInfo field in RType.GetFields(BindingFlags.Instance))
+                foreach (FieldInfo field in RType.GetFields(BindingFlags.NonPublic | BindingFlags.Instance))
                 {
                     RequiredField[] requirements = (RequiredField[])field.GetCustomAttributes(typeof(RequiredField), false);
 

@@ -36,6 +36,7 @@
       <HintPath>Libraries\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -48,6 +49,18 @@
     <Compile Include="Interface\Attributes\ObjectToObjectTarget.cs" />
     <Compile Include="Interface\Attributes\RequiredField.cs" />
     <Compile Include="Interface\Attributes\RequirementClass.cs" />
+    <Compile Include="Interface\CharacterEditorInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\CharacterEditorInterface.Designer.cs">
+      <DependentUpon>CharacterEditorInterface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\GoldEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Interface\GoldEditor.Designer.cs">
+      <DependentUpon>GoldEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\LogInterface.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,9 +98,15 @@
     <Compile Include="Mpq\PKLibDecompress.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Interface\CharacterEditorInterface.resx">
+      <DependentUpon>CharacterEditorInterface.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interface\DBProfileEditor.resx">
       <DependentUpon>DBProfileEditor.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\GoldEditor.resx">
+      <DependentUpon>GoldEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\LogInterface.resx">
       <DependentUpon>LogInterface.cs</DependentUpon>
@@ -104,6 +123,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -120,6 +140,10 @@
     <Content Include="License.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Resources\silvericon.png" />
+    <EmbeddedResource Include="Resources\goldicon.png" />
+    <EmbeddedResource Include="Resources\coppericon.png" />
+    <EmbeddedResource Include="Resources\GoldIcon.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
