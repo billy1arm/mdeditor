@@ -11,8 +11,6 @@ namespace MDEditor.Interface
 {
     public partial class ParentInterface : Form
     {
-        private int childFormNumber = 0;
-
         public ParentInterface()
         {
             InitializeComponent();
@@ -88,6 +86,10 @@ namespace MDEditor.Interface
                     editor.Show();
                 }
             }
+
+            CharacterEditorInterface newwindow = new CharacterEditorInterface();
+            newwindow.MdiParent = this;
+            newwindow.Show();
         }
 
         void DBProfileHandler_Removed(DBProfile obj)
