@@ -25,7 +25,9 @@ namespace MDEditor.Interface.Attributes
             Type targetType = m_objectTarget.GetType();
             foreach (ObjectToObject oto in m_otos)
             {
-                oto.OwnerField.SetValue(oto.Owner, oto.TargetField.GetValue(m_objectTarget, null), null);
+                oto.OwnerField.SetValue(oto.Owner,
+                    oto.RequiresConversion ? oto.ConvertFrom(oto.TargetField.GetValue(m_objectTarget, null)) :
+                    oto.TargetField.GetValue(m_objectTarget, null), null);
             }
         }
 
@@ -40,7 +42,9 @@ namespace MDEditor.Interface.Attributes
             Type targetType = m_objectTarget.GetType();
             foreach (ObjectToObject oto in m_otos)
             {
-                oto.TargetField.SetValue(m_objectTarget, oto.OwnerField.GetValue(oto.Owner, null), null);
+                oto.TargetField.SetValue(m_objectTarget, 
+                    oto.RequiresConversion ? oto.ConvertTo(oto.OwnerField.GetValue(oto.Owner, null)) :
+                oto.OwnerField.GetValue(oto.Owner, null), null);
             }
         }
     }

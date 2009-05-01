@@ -8,6 +8,7 @@ namespace MDEditor
 {
     public delegate void Action();
     public delegate bool BoolAction();
+    public delegate object Conversion(object obj);
 
     public enum Priority
     {
