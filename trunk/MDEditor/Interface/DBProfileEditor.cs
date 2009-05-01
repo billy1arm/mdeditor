@@ -63,6 +63,13 @@ namespace MDEditor.Interface
 
         private void Initialize()
         {
+            foreach (DatabaseType dbType in Enum.GetValues(typeof(DatabaseType)))
+            {
+                i_accountSqlType.Items.Add(dbType);
+                i_worldSqlType.Items.Add(dbType);
+                i_characterSqlType.Items.Add(dbType);
+            }
+
             m_otoClass = Manager.OTOScan(this);
             m_rClass = Manager.RequirementScan(this);
 
@@ -77,6 +84,39 @@ namespace MDEditor.Interface
             //Need checking here but for now we will just save
 
             Save();
+        }
+
+        private void i_connectButton_Click(object sender, EventArgs e)
+        {
+            if (m_otoClass != null && m_rClass != null)
+            {
+                m_otoClass.SaveValues();
+
+                if (m_rClass.MeetsRequirement)
+                {
+                    try
+                    {
+                        m_profile.Connect();
+                    }
+                    catch (Exception error)
+                    {
+                        if (error.InnerException != null)
+                            MessageBox.Show(error.InnerException.Message, "Error connecting", MessageBoxButtons.OK);
+                        else
+                            MessageBox.Show(error.Message, "Error connecting", MessageBoxButtons.OK);
+                        Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please fill out all required fields before trying to connect.", "Incomplete form", MessageBoxButtons.OK);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please report this to developers at: http://code.google.com/p/mdeditor/", "Framework Error", MessageBoxButtons.OK);
+                Close();
+            }
         }
     }
 }
